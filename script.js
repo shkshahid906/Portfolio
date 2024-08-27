@@ -13,7 +13,6 @@ gsap.from(".sec img",{
 })
 
 gsap.from(".content p",{
-    scale:0,
     opacity:0,
     delay:1,
     duration:1,
@@ -54,7 +53,8 @@ gsap.from(".about h5",{
     delay:0,
     duration:2,
     stagger:1,
-    y:1000,
+    opacity:0,
+    y:500,
     scrollTrigger:
     {
         trigger:".about  ",
@@ -98,8 +98,9 @@ window.onload = function() {
             popup.className = "popup";
             var img = document.createElement("img");
             img.src = src;
-            img.style.maxWidth = "800px";
-            img.style.maxHeight = "800px";
+            img.style.maxWidth = "100%";
+            img.style.maxHeight = "50%";
+            img.style.objectFit="cover";
             popup.appendChild(img);
             document.body.appendChild(popup);
 
@@ -129,3 +130,23 @@ window.onload = function() {
 };
 
 
+var menu=document.querySelector(".mn i")
+var cls=document.querySelector(".menu p")
+var mn=document.querySelector(".mn")
+cls.addEventListener("click", function() {
+    if (mn.style.display == "none") {
+    cls.style.display="none";
+      mn.style.display = "block";
+    } else {
+        cls.style.display="block";
+      mn.style.display = "none";
+    }
+  });
+  menu.addEventListener("click", function() {
+    if (mn.style.display == "block") {
+        cls.style.display="block";
+        mn.style.display = "none";
+    } else {
+      mn.style.display = "block";
+    }
+  });
